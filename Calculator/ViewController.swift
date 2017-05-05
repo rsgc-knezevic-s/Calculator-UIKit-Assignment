@@ -1,4 +1,4 @@
-//
+    //
 //  ViewController.swift
 //  Calculator
 //
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //clear the contents of the label
-        labelDisplay.text = "0"
+        labelDisplay.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,13 +88,40 @@ class ViewController: UIViewController {
     
     @IBAction func multiply(_ sender: Any) {
         model.multiply()
-        
-        
-        
     }
     
+    @IBAction func equals(_ sender: Any) {
+        model.equals()
+        if (model.computedValue != nil){
+        labelDisplay.text = String(format: "%g", model.computedValue!)
+        }
+    }
+    
+    @IBAction func divide(_ sender: Any) {
+        model.divide()
+    }
+    
+    
+    @IBAction func clear(_ sender: Any) {
+        if (model.computedValue != nil){
+            model.clear()
+        }
+    }
+    
+    @IBAction func addition(_ sender: Any) {
+        model.addition()
+    }
+
+    @IBAction func subtraction(_ sender: Any) {
+        model.subtraction()
+    }
     
     
 
 }
+
+
+
+
+
 
