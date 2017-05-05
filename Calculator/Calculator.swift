@@ -14,6 +14,7 @@ class Calculator {
     var providedValue : String = ""
     var computedValue : Double? = nil
     var operation : Operation? = nil
+    var w = 1
     
     // MARK: Initializer(s)
     
@@ -21,6 +22,9 @@ class Calculator {
     func addToNewValue(digit : String) {
         providedValue = providedValue + digit
     }
+    
+    
+    
     
     /**
      Sets calculator operation to multiplication, and computes a new value, if needed.
@@ -44,6 +48,27 @@ class Calculator {
         updateState()
     }
     
+    func plusorminus(){
+        
+        if (providedValue == "") && (computedValue == nil){
+            w = -1
+            
+            
+        }
+        else if (providedValue == "") {
+            computedValue = computedValue! * (-1)
+            
+            }
+            
+        else{
+            computedValue = Double(providedValue)! * (-1)
+            providedValue = ""
+            
+            w=1
+        }
+        
+    }
+    
     func addition(){
         operation = Operation.addition
         
@@ -55,6 +80,8 @@ class Calculator {
         
         updateState()
     }
+    
+    
     
     /**
      Updates calculator state.
@@ -120,6 +147,9 @@ class Calculator {
         
     }
     
+
+    
+    
     /**
      Makes the computed value become whatever value the user has typed into the calculator.
      */
@@ -139,5 +169,8 @@ class Calculator {
         providedValue = ""
         computedValue = nil
     }
+    
+    
+    
     
 }

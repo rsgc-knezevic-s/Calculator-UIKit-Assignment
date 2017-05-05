@@ -29,6 +29,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //The actions which provide value to the buttons
+    
     @IBAction func onePressd(_ sender: Any) {
         
         model.addToNewValue(digit: "1")
@@ -86,28 +88,16 @@ class ViewController: UIViewController {
         labelDisplay.text = model.providedValue
     }
     
+    //arithmetic operator actions
+    
     @IBAction func multiply(_ sender: Any) {
         model.multiply()
-    }
-    
-    @IBAction func equals(_ sender: Any) {
-        model.equals()
-        if (model.computedValue != nil){
-        labelDisplay.text = String(format: "%g", model.computedValue!)
-        }
     }
     
     @IBAction func divide(_ sender: Any) {
         model.divide()
     }
-    
-    
-    @IBAction func clear(_ sender: Any) {
-        if (model.computedValue != nil){
-            model.clear()
-        }
-    }
-    
+   
     @IBAction func addition(_ sender: Any) {
         model.addition()
     }
@@ -116,12 +106,41 @@ class ViewController: UIViewController {
         model.subtraction()
     }
     
+    //function actions (such as clear, equal, plus or minus etc.)
     
+    @IBAction func equals(_ sender: Any) {
+        model.equals()
+        if (model.computedValue != nil){
+            labelDisplay.text = String(format: "%g", model.computedValue!)
+        }
+    }
+    
+    @IBAction func clear(_ sender: Any) {
+        
+        model.clear()
+        labelDisplay.text = String("0")
+        
+    }
+    
+    
+    @IBAction func plusorminus(_ sender: Any) {
+        
+        model.plusorminus()
+        
+        
+     
+        if (model.computedValue != nil){
+            model.computedValue = model.computedValue! * Double(model.w)
+            labelDisplay.text = String(format: "%g", model.computedValue!)
+        }
+    }
+
 
 }
 
 
 
 
+    
 
 
