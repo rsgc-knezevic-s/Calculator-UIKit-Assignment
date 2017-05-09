@@ -22,4 +22,5 @@ enum Operation {
     case addition
     case percentage
     case plusorminus
+    
 }

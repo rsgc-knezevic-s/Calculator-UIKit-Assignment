@@ -24,6 +24,11 @@ class Calculator {
     }
     
     
+    func Percent(){
+        operation = Operation.percentage
+        
+    }
+    
     
     
     /**
@@ -48,25 +53,24 @@ class Calculator {
         updateState()
     }
     
+    
     func plusorminus(){
         
+        //w is a varible that is used by the plusorminus function to hold whether or not to multiply the computed value by negative one
+        
+        w = 2
+        
         if (providedValue == "") && (computedValue == nil){
-            w = -1
-            
-            
+            w = 0
         }
         else if (providedValue == "") {
             computedValue = computedValue! * (-1)
-            
-            }
-            
+            w = 1
+        }
         else{
             computedValue = Double(providedValue)! * (-1)
             providedValue = ""
-            
-            w=1
         }
-        
     }
     
     func addition(){
@@ -130,14 +134,36 @@ class Calculator {
         // Check operation type
         if operation == Operation.multiplication {
             computedValue = computedValue! * Double(providedValue)!
+            if (w == 0){
+                w = 1
+            }
         } else if operation == Operation.division {
             computedValue = computedValue! / Double(providedValue)!
+            if (w == 0){
+                w = 1
+            }
         }
         else if operation == Operation.addition{
             computedValue = computedValue! + Double(providedValue)!
+            if (w == 0){
+                w = 1
+            }
         }
         else if operation == Operation.subtraction {
             computedValue = computedValue! - Double(providedValue)!
+            if (w == 0){
+                w = 1
+            }
+        }
+       
+        //this if statement is part of the plusorminus function (as well as the w = 1's within the if statement above)
+        
+        if (w == 0){
+            computedValue = (-1) * Double(providedValue)!
+            w = 1
+        }
+        else if (w == 1){
+            computedValue = computedValue! * (-1)
         }
         
         // The operation selected has been performed, so get ready to receive new operation
@@ -165,6 +191,7 @@ class Calculator {
     func clear() {
         
         // Reset everthing
+        w = 2
         operation = nil
         providedValue = ""
         computedValue = nil
