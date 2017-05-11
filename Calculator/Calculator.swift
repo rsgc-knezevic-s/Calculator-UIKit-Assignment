@@ -28,7 +28,7 @@ class Calculator {
         operation = Operation.percentage
         
         updateState()
-        
+        equals()
     }
     
     
@@ -57,7 +57,6 @@ class Calculator {
     
     
     func plusorminus(){
-        
         if computedValue == nil && providedValue == ""{
             
             if type == 1{
@@ -70,7 +69,6 @@ class Calculator {
         else {
             type = 1
             equals()
-        
         }
         updateState()
     }

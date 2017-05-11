@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     //connection to view
+    
+    
+    
     @IBOutlet weak var labelDisplay: UILabel!
     
     //Create instance of Calculator class
@@ -102,18 +105,22 @@ class ViewController: UIViewController {
     
     @IBAction func multiply(_ sender: Any) {
         model.multiply()
+         labelDisplay.text = String("✕")
     }
     
     @IBAction func divide(_ sender: Any) {
         model.divide()
+         labelDisplay.text = String("÷")
     }
    
     @IBAction func addition(_ sender: Any) {
         model.addition()
+         labelDisplay.text = String("+")
     }
 
     @IBAction func subtraction(_ sender: Any) {
         model.subtraction()
+        labelDisplay.text = String("-")
     }
     
     //function actions (such as clear, equal, plus or minus etc.)
@@ -141,7 +148,6 @@ class ViewController: UIViewController {
     
     
     @IBAction func plusorminus(_ sender: Any) {
-        
         model.plusorminus()
         
         if (model.computedValue != nil){
@@ -149,9 +155,12 @@ class ViewController: UIViewController {
         }
     }
     
+    
     @IBAction func Percent(_ sender: Any) {
         model.Percent()
-        
+        if (model.computedValue != nil){
+            labelDisplay.text = String(format: "%g", model.computedValue!)
+        }
     }
 
 
