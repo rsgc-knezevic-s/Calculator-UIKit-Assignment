@@ -14,7 +14,7 @@ class Calculator {
     var providedValue : String = ""
     var computedValue : Double? = nil
     var operation : Operation? = nil
-    var w = 1
+    var type : Int = 0
     
     // MARK: Initializer(s)
     
@@ -26,6 +26,8 @@ class Calculator {
     
     func Percent(){
         operation = Operation.percentage
+        
+        updateState()
         
     }
     
@@ -56,21 +58,21 @@ class Calculator {
     
     func plusorminus(){
         
-        //w is a varible that is used by the plusorminus function to hold whether or not to multiply the computed value by negative one
+        if computedValue == nil && providedValue == ""{
+            
+            if type == 1{
+                type = 2
+            }
+            else{
+            type = 1
+            }
+        }
+        else {
+            type = 1
+            equals()
         
-        w = 2
-        
-        if (providedValue == "") && (computedValue == nil){
-            w = 0
         }
-        else if (providedValue == "") {
-            computedValue = computedValue! * (-1)
-            w = 1
-        }
-        else{
-            computedValue = Double(providedValue)! * (-1)
-            providedValue = ""
-        }
+        updateState()
     }
     
     func addition(){
@@ -80,8 +82,8 @@ class Calculator {
     }
     
     func subtraction(){
+       
         operation = Operation.subtraction
-        
         updateState()
     }
     
@@ -134,36 +136,46 @@ class Calculator {
         // Check operation type
         if operation == Operation.multiplication {
             computedValue = computedValue! * Double(providedValue)!
-            if (w == 0){
-                w = 1
-            }
         } else if operation == Operation.division {
             computedValue = computedValue! / Double(providedValue)!
-            if (w == 0){
-                w = 1
-            }
         }
         else if operation == Operation.addition{
             computedValue = computedValue! + Double(providedValue)!
-            if (w == 0){
-                w = 1
-            }
         }
         else if operation == Operation.subtraction {
             computedValue = computedValue! - Double(providedValue)!
-            if (w == 0){
-                w = 1
+        }
+        else if operation == Operation.percentage {
+            updateState()
+            computedValue = computedValue! / 100
+        }
+        else if operation == Operation.percentage{
+            
+            if computedValue != nil{
+                computedValue = computedValue!/100
             }
+            else{
+                computedValue = Double(providedValue)! / 100
+            }
+            updateState()
         }
-       
-        //this if statement is part of the plusorminus function (as well as the w = 1's within the if statement above)
         
-        if (w == 0){
-            computedValue = (-1) * Double(providedValue)!
-            w = 1
-        }
-        else if (w == 1){
-            computedValue = computedValue! * (-1)
+        
+        if type == 1{
+            
+            if providedValue != ""{
+                
+                if operation != nil {
+                    computedValue = computedValue! * (-1)
+                }
+                else{
+                    computedValue = Double(providedValue)! * (-1)
+                }
+            }
+            else if computedValue != nil{
+                computedValue = computedValue! * (-1)
+            }
+            type = 2
         }
         
         // The operation selected has been performed, so get ready to receive new operation
@@ -191,7 +203,7 @@ class Calculator {
     func clear() {
         
         // Reset everthing
-        w = 2
+        type = 0
         operation = nil
         providedValue = ""
         computedValue = nil
