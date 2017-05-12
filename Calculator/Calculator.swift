@@ -14,6 +14,9 @@ class Calculator {
     var providedValue : String = ""
     var computedValue : Double? = nil
     var operation : Operation? = nil
+    
+    //type is a varible that holds the state of the plusorminus function
+    //when it is 0 or 2 then the plusorminus function embeded in the equals function. When it equals 1 the code in the equals function runs
     var type : Int = 0
     
     // MARK: Initializer(s)
@@ -23,7 +26,7 @@ class Calculator {
         providedValue = providedValue + digit
     }
     
-    
+    // function that is called when the percentage button is pressed
     func Percent(){
         operation = Operation.percentage
         
@@ -31,11 +34,11 @@ class Calculator {
         equals()
     }
     
-    
-    
     /**
      Sets calculator operation to multiplication, and computes a new value, if needed.
      */
+    
+    // function that is called when the multiplication button is pressed
     func multiply() {
         
         // Set the operation
@@ -47,6 +50,8 @@ class Calculator {
     /**
      Sets calculator operation to division, and computes a new value, if needed.
      */
+    
+    // function that is called when the division button is pressed
     func divide() {
         
         // Set the operation
@@ -55,7 +60,7 @@ class Calculator {
         updateState()
     }
     
-    
+    // function that is called when the plusorminus button is pressed
     func plusorminus(){
         if computedValue == nil && providedValue == ""{
             
@@ -63,7 +68,7 @@ class Calculator {
                 type = 2
             }
             else{
-            type = 1
+                type = 1
             }
         }
         else {
@@ -73,14 +78,16 @@ class Calculator {
         updateState()
     }
     
+    // function that is called when the addition button is pressed
     func addition(){
         operation = Operation.addition
         
         updateState()
     }
     
+    // function that is called when the subtraction button is pressed
     func subtraction(){
-       
+        
         operation = Operation.subtraction
         updateState()
     }
@@ -117,7 +124,7 @@ class Calculator {
                 // 2. When in this branch, a new provided value has been given.
                 
                 // So, perform the operation!
-                equals()    
+                equals()
             }
             
         }
@@ -129,6 +136,7 @@ class Calculator {
      
      The current operation is performed on the computed value and the provided value.
      */
+    // function that is called when the equals button is pressed
     func equals() {
         
         // Check operation type
@@ -147,6 +155,7 @@ class Calculator {
             updateState()
             computedValue = computedValue! / 100
         }
+            // does the percentage arithmetic
         else if operation == Operation.percentage{
             
             if computedValue != nil{
@@ -158,7 +167,7 @@ class Calculator {
             updateState()
         }
         
-        
+        //used for plus or minus
         if type == 1{
             
             if providedValue != ""{
@@ -180,11 +189,7 @@ class Calculator {
         // and new value
         operation = nil
         providedValue = ""
-        
     }
-    
-
-    
     
     /**
      Makes the computed value become whatever value the user has typed into the calculator.
@@ -198,6 +203,7 @@ class Calculator {
     /**
      Resets the operation, provided value, and computed value.
      */
+    // function that is called when the clear button is pressed
     func clear() {
         
         // Reset everthing

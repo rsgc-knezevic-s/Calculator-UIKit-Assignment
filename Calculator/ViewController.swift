@@ -11,9 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     //connection to view
-    
-    
-    
+        
     @IBOutlet weak var labelDisplay: UILabel!
     
     //Create instance of Calculator class
@@ -169,6 +167,7 @@ class ViewController: UIViewController {
     
     //When percent is pressed
     @IBAction func Percent(_ sender: Any) {
+        
         model.Percent()
         if (model.computedValue != nil){
             labelDisplay.text = String(format: "%g", model.computedValue!)
