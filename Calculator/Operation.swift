@@ -16,11 +16,19 @@ import Foundation
  operations listed
  */
 enum Operation {
-    case multiplication
-    case division
-    case subtraction
-    case addition
-    case percentage
-    case plusorminus
+   case dividedBy3
+   case dividedBy4
+   case dividedBy7
+   case dividedBy9
+   case newNumber
+   case even
+   case odd
+   case prime
+   case square
+   case submit
     
 }
+
+
+
+

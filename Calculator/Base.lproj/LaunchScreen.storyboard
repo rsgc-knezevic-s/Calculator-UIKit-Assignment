@@ -22,9 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Calculator" textAlignment="center" lineBreakMode="headTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="gKJ-iK-JjS">
-                                <rect key="frame" x="80" y="196" width="215" height="145"/>
-                                <fontDescription key="fontDescription" name=".SFNSDisplay-Regular" family=".SF NS Display" pointSize="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Guess my Number" textAlignment="center" lineBreakMode="headTruncation" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="gKJ-iK-JjS">
+                                <rect key="frame" x="80" y="261" width="215" height="145"/>
+                                <fontDescription key="fontDescription" name=".SFNSDisplay-Regular" family=".SF NS Display" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
