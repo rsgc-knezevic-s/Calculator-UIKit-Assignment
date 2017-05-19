@@ -21,6 +21,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var dividedByseven: UIButton!
     @IBOutlet weak var dividedBynine: UIButton!
     @IBOutlet weak var dividedBy: UIButton!
+    
+    @IBOutlet weak var EvenandOdd: UIButton!
+    @IBOutlet weak var even: UIButton!
+    @IBOutlet weak var odd: UIButton!
+    
+    @IBOutlet weak var AboveandBelow: UIButton!
+    @IBOutlet weak var morethan: UIButton!
+    @IBOutlet weak var lessthan: UIButton!
+    
     @IBOutlet weak var Textfield: UITextField!
     
     
@@ -35,6 +44,11 @@ class ViewController: UIViewController {
         dividedByfour.isHidden = true
         dividedByseven.isHidden = true
         dividedBynine.isHidden = true
+        
+        even.isHidden = true
+        odd.isHidden = true
+        morethan.isHidden = true
+        lessthan.isHidden = true
     }
 
     @IBAction func dividedBypressed(_ sender: Any) {
@@ -148,14 +162,86 @@ class ViewController: UIViewController {
     @IBAction func newNumberPressed(_ sender: Any) {
         
         model.newNumber()
-        labelDisplay.text = String("")
+        labelDisplay.text = String("The number was \(model.randomNumber)")
         
     }
+    
+    
+    @IBAction func AboveandBelowPressed(_ sender: Any) {
+        
+        AboveandBelow.isHidden = true
+        morethan.isHidden = false
+        lessthan.isHidden = false
+        
+        
+        
+        
+    }
+    
+    
+    @IBAction func moreThan(_ sender: Any) {
+        
+        model.morethan()
+        
+        AboveandBelow.isHidden = false
+        morethan.isHidden = true
+        lessthan.isHidden = true
+        
+        if model.computedBool == true {
+            
+            labelDisplay.text = String("True")
+        }
+        else if model.computedBool == false {
+            
+            labelDisplay.text = String("False")
+        }
+        
+        
+    }
+    
+    @IBAction func lessThan(_ sender: Any) {
+        
+        model.lessthan()
+        
+        AboveandBelow.isHidden = false
+        morethan.isHidden = true
+        lessthan.isHidden = true
+        
+        if model.computedBool == true {
+            
+            labelDisplay.text = String("True")
+        }
+        else if model.computedBool == false {
+            
+            labelDisplay.text = String("False")
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
+    @IBAction func EvenandOddPressed(_ sender: Any) {
+        
+        EvenandOdd.isHidden = true
+        even.isHidden = false
+        odd.isHidden = false
+        
+        
+    }
+    
     
     @IBAction func evenPressed(_ sender: Any) {
         
         model.even()
         
+        EvenandOdd.isHidden = false
+        even.isHidden = true
+        odd.isHidden = true
+        
+        
         if model.computedBool == true {
             
             labelDisplay.text = String("True")
@@ -167,11 +253,16 @@ class ViewController: UIViewController {
         
         
     }
-    
     
     @IBAction func oddPressed(_ sender: Any) {
         
+        
         model.odd()
+        
+        EvenandOdd.isHidden = false
+        even.isHidden = true
+        odd.isHidden = true
+        
         
         if model.computedBool == true {
             
@@ -181,9 +272,11 @@ class ViewController: UIViewController {
             
             labelDisplay.text = String("False")
         }
+        
     }
     
     
+
     
     @IBAction func primePressed(_ sender: Any) {
         

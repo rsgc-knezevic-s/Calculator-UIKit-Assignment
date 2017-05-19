@@ -59,6 +59,7 @@ class Model {
     func prime(){
         
         for a in stride(from: 2, to: 100, by: 1){
+            
             if ((randomNumber % a) == 0) && (randomNumber != a){
                 b = 1
             }
@@ -70,8 +71,7 @@ class Model {
             else if b == 0{
                 computedBool = true
             }
-            
-        
+        b = 0 
     }
     
     func divideBythree(){
@@ -117,6 +117,38 @@ class Model {
             computedBool = false
         }
     }
+    
+    
+    func morethan() {
+        
+        if randomNumber >= 50 {
+            
+            computedBool = true
+            
+        } else {
+            
+            computedBool = false
+        }
+        
+        
+        
+    }
+    
+    func lessthan() {
+        
+        if randomNumber < 50 {
+            
+            computedBool = true
+            
+        } else {
+            
+            computedBool = false
+        }
+        
+        
+        
+    }
+    
     
     
     func submit(){
