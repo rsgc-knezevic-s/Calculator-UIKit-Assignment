@@ -50,6 +50,7 @@ class ViewController: UIViewController {
         morethan.isHidden = true
         lessthan.isHidden = true
     }
+    
 
     @IBAction func dividedBypressed(_ sender: Any) {
 
@@ -161,8 +162,10 @@ class ViewController: UIViewController {
     
     @IBAction func newNumberPressed(_ sender: Any) {
         
-        model.newNumber()
+        
         labelDisplay.text = String("The number was \(model.randomNumber)")
+        model.newNumber()
+        
         
     }
     
@@ -215,11 +218,7 @@ class ViewController: UIViewController {
             
             labelDisplay.text = String("False")
         }
-        
-        
     }
-    
-    
     
     
     
@@ -250,6 +249,8 @@ class ViewController: UIViewController {
             
             labelDisplay.text = String("False")
         }
+        
+   
         
         
     }

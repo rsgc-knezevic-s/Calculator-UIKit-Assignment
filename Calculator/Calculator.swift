@@ -58,7 +58,7 @@ class Model {
     
     func prime(){
         
-        for a in stride(from: 2, to: 100, by: 1){
+        for a in stride(from: 1, to: 101, by: 1){
             
             if ((randomNumber % a) == 0) && (randomNumber != a){
                 b = 1
